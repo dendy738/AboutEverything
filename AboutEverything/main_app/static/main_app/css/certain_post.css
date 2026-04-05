@@ -1,0 +1,232 @@
+/* Базовая разметка страницы */
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 260px 1fr; /* Левая панель и основной контент */
+    grid-template-rows: 70px 1fr;    /* Высота шапки */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Inter', -apple-system, sans-serif;
+    min-height: 100vh;
+}
+
+/* --- ВЕРХНЯЯ ПАНЕЛЬ (HEADER) --- */
+.top-panel {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: black;
+    letter-spacing: -1px;
+}
+
+.logo a {
+    color: black;
+}
+
+.nav-links a { margin-left: 25px; color: #636e72; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: #2d3436; }
+
+/* --- БОКОВАЯ ПАНЕЛЬ (ASIDE) --- */
+aside {
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside li a {
+    display: block;
+    padding: 12px 20px;
+    color: #2d3436;
+    border-radius: 50px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+aside li a:hover {
+    background: white;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* --- КОНТЕНТ ПОСТА --- */
+main, .post-container {
+    grid-column: 2;
+    padding: 40px;
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1rem;
+    color: #636e72;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* Основной контент поста */
+.post-contaner h3 {
+    display: block;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 400;
+    margin-bottom: 30px;
+
+    /* РЕШЕНИЕ ПРОБЛЕМЫ ВЫХОДА ЗА ГРАНИЦЫ: */
+    max-width: 100%;            /* Не позволяет элементу быть шире родителя */
+    box-sizing: border-box;    /* Учитывает padding в общей ширине */
+    overflow-wrap: break-word; /* Переносит длинные слова (ссылки, наборы букв) */
+    word-wrap: break-word;     /* Поддержка старых браузеров */
+    word-break: break-word;    /* Дополнительная фиксация для корректного разрыва */
+    white-space: pre-wrap;     /* СОХРАНЯЕТ переносы строк, сделанные автором поста */
+}
+
+/* На всякий случай ограничим и сам контейнер, чтобы он не разъезжался */
+.post-contaner {
+    grid-column: 2;
+    padding: 40px;
+    max-width: 900px; /* Ограничиваем общую ширину для удобства чтения */
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Гарантирует отсутствие горизонтального скролла */
+}
+
+
+h5 {
+    display: inline-block;
+    margin-right: 20px;
+    color: #999999;
+    font-weight: 700;
+}
+
+/* Лайки и Дизлайки */
+.likes-bar { margin: 20px 0; display: flex; gap: 15px; }
+.likes-bar a { padding: 8px 20px; background: white; border-radius: 50px; color: #2d3436; font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+.likes-bar a:hover { transform: scale(1.05); background: #2d3436; color: white; }
+
+/* --- КОММЕНТАРИИ --- */
+.comment {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 15px 25px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+
+    /* Чтобы контент не "раздувал" блок вширь */
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.comment label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.comment h5 {
+    display: block;
+    color: #2d3436;
+    margin: 5px 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.comment a {
+    font-size: 0.8rem;
+    color: #ff7675;
+}
+
+/* Форма комментария */
+form { margin-top: 50px; }
+
+form label {
+    margin-left: 20px;
+ }
+
+textarea, input {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid white;
+    outline: none;
+    margin-bottom: 10px; }
+
+form button {
+    margin: 5px 25px 10px;
+    padding: 12px 30px;
+    background: #2d3436;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    }
+
+form button:hover { background: #000; transform: translateY(-2px); }
+
+/* Кнопки управления (Изменить/Удалить) */
+.post-controls {
+    margin-top: 40px;
+    padding-top: 20px;
+     border-top: 1px solid rgba(0,0,0,0.1);
+     }
+
+.post-controls a, .back-link {
+    color: #636e72;
+    font-size: 0.9rem;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+
+.post-controls a:hover { color: #d63031; }
+
+.back-btn {
+    width: 100px;
+    margin: 50px;
+    margin-left: 350px;
+    padding: 12px 15px;
+    background: #2d3436;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    }
+
+.back-btn a {
+    color: white;
+}
+
+.back-btn:hover {
+    background: #000;
+    transform: translateY(-2px);
+    }

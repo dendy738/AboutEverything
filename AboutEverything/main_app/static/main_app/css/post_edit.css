@@ -1,0 +1,134 @@
+/* Базовая сетка страницы */
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: 70px 1fr;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+/* Шапка (Top Panel) */
+.top-panel {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: black;
+    letter-spacing: -1px;
+}
+
+.logo a {
+    color: black;
+}
+
+.nav-links a { margin-left: 25px; color: #636e72; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: #2d3436; }
+
+/* Боковая панель (Aside) */
+aside {
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+aside ul { list-style: none; padding: 0; }
+aside li a {
+    display: block;
+    padding: 12px 20px;
+    color: #2d3436;
+    border-radius: 50px;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+aside li a:hover { background: white; transform: translateX(5px); }
+
+/* Основной контент (Форма) */
+main {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+/* Стилизация элементов Django Form */
+form p { margin-bottom: 20px; }
+form label {
+    display: block;
+    margin: 10px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2d3436;
+    font-size: 0.9rem; }
+
+input, select, textarea {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid #f1f3f5;
+    border-radius: 15px;
+    font-size: 1rem;
+    background: #f8f9fa;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+    border-color: #2d3436;
+    background: white;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(45, 52, 54, 0.05);
+}
+
+textarea { min-height: 250px; resize: vertical; }
+
+/* Кнопка Change */
+button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    background: #2d3436;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 30px;
+}
+
+button[type="submit"]:hover {
+    background: #000;
+    transform: translateY(-2px);
+}
+
+/* Ссылка Back */
+main > a {
+    color: #636e72;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+main > a:hover { color: #2d3436; text-decoration: underline !important; }

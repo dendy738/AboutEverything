@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #2d3436;
+}
+
+main {
+    text-align: center;
+    padding: 2rem;
+    max-width: 500px;
+}
+
+/* Общий контейнер */
+.regist-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    padding: 20px;
+}
+
+/* Контейнер для ссылки под формой */
+.regist-card a {
+    width: 100%;
+    padding: 15px;
+    background-color: #2d3436;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+/* Эффект при наведении на ссылку */
+.regist-card a:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+}
+
+
+/* В файле signup.css */
+.login-link {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    color: #636e72;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.login-link:hover {
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+
+/* Основной контейнер формы */
+.signup-card {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(12px); /* Эффект стекла */
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Стилизация строк формы (Django as_p) */
+.signup-card p {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column; /* По умолчанию метка сверху, инпут снизу */
+}
+
+/* Базовый стиль для всех инпутов и селектов */
+.signup-card input,
+.signup-card select {
+    padding: 12px;
+    border: 1.5px solid #ececec;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.signup-card input:focus,
+.signup-card select:focus {
+    border-color: #007bff;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+/* --- Стилизация Телефонного номера (MultiWidget) --- */
+/* Находим параграф, внутри которого есть элементы с классом .multi-widget */
+.signup-card p:has(.multi-widget) {
+    flex-direction: row;
+    flex-wrap: wrap; /* Чтобы label остался сверху */
+}
+
+/* Заставляем label занимать всю ширину строки, чтобы инпуты ушли под него */
+.signup-card p:has(.multi-widget) label {
+    flex: 0 0 100%;
+}
+
+/* Контейнер для инпутов телефона (в Django это просто набор тегов внутри p) */
+.signup-card select.multi-widget {
+    flex: 0 0 100px; /* Фиксированная ширина для кода страны */
+    margin-right: 10px;
+}
+
+.signup-card input.multi-widget {
+    flex: 1; /* Номер занимает все оставшееся место */
+}
+
+/* --- Стилизация Даты рождения (SelectDateWidget) --- */
+.signup-card p:has(.my-date-select) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.signup-card p:has(.my-date-select) label {
+    flex: 0 0 100%;
+}
+
+.signup-card .my-date-select {
+    flex: 1; /* Все три селекта (день, месяц, год) делят строку поровну */
+    min-width: 0; /* Важно для flex-контейнеров */
+}
+
+/* Кнопка регистрации */
+.signup-btn button {
+    width: 100%;
+    padding: 15px;
+    background-color: #2d3436;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.signup-btn button:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+}
+
+/* Сообщения (Alerts) */
+.alert-error, .alert-success {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.alert-error { background-color: #ffebee; color: #c62828; border: 1px solid #ffcdd2; }
+.alert-success { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }

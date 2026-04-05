@@ -1,0 +1,132 @@
+/* Базовая разметка страницы */
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 260px 1fr; /* Левая панель и основной контент */
+    grid-template-rows: 70px 1fr;    /* Высота шапки */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Inter', -apple-system, sans-serif;
+    min-height: 100vh;
+}
+
+/* --- ВЕРХНЯЯ ПАНЕЛЬ (HEADER) --- */
+.top-panel {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: black;
+    letter-spacing: -1px;
+}
+
+.logo a {
+    color: black;
+}
+
+.nav-links a { margin-left: 25px; color: #636e72; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: #2d3436; }
+
+/* --- БОКОВАЯ ПАНЕЛЬ (ASIDE) --- */
+aside {
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside li a {
+    display: block;
+    padding: 12px 20px;
+    color: #2d3436;
+    border-radius: 50px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+aside li a:hover {
+    background: white;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* --- ПОИСК (SEARCH) --- */
+main {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+main form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+main input[type="search"] {
+    flex-grow: 1;
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: 2px solid white;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+main button[type="submit"] {
+    padding: 12px 30px;
+    background: #2d3436;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* --- КАРТОЧКИ ПОСТОВ --- */
+.post-card {
+    display: block;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    border-color: #2d3436;
+}
+
+.post-title label {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2d3436;
+    cursor: pointer;
+}
+
+.post-author, .post-date {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 20px;
+    font-size: 0.85rem;
+    color: #b2bec3;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AboutEverything</title>
+    <link href="{% static 'main_app/css/certain_post.css' %}" rel="stylesheet">
+</head>
+<body>
+     <header class="top-panel">
+    <div class="logo">
+        <a href="{% url 'posts' %}" style="text-decoration: none;">AboutEverything</a>
+    </div>
+    <nav class="nav-links">
+        <a href="{% url 'posts' %}" style="text-decoration: none;">Main</a>
+        <a href="{% url 'add_post' %}" style="text-decoration: none;">Add Post</a>
+        <a href="" style="text-decoration: none;">Rules</a>
+        <a href="" style="text-decoration: none;">About Us</a>
+        <a href="{% url 'profile' user_id %}" style="text-decoration: none;">Profile</a>
+        <a href="{% url 'logout' %}" style="text-decoration: none;">Logout</a>
+    </nav>
+    </header>
+    <aside>
+        <ul>
+          {% for category in categories %}
+            <li><a href="{% url 'category_filter' category.slug_name %}" style="text-decoration: none;">{{ category.category_name }}</a></li>
+          {% endfor %}
+        </ul>
+    </aside>
+    <main class="post-contaner">
+        <h1>Title: {{ post.title }}</h1>
+        <h2>Category: {{ post.post_category.category_name }}</h2>
+        <h3>{{ post.content }}</h3>
+        <h5>Author: {{ post.author_id.user_name }}</h5>  <h5>Posted: {{ post.posted_at }}</h5>
+        <div class="likes-bar">
+            <a href="{% url 'add_like' post.id %}" style="text-decoration: none;">Useful: {{ likes }}</a> &nbsp;&nbsp; <a href="{% url 'add_dislike' post.id %}" style="text-decoration: none;">Doesn't make sense: {{ dislikes }}</a>
+        </div>
+        {% if comments %}
+            {% for comment in comments %}
+                <div class="comment">
+                    <label>Author: {{ comment.author.user_name }}</label>
+                    <h5>{{ comment.content }}</h5>
+                    {% if comment.author.id == user_id %}
+                        <a href="{% url 'del_comment' post.id comment.id %}" style="text-decoration: none;">Delete comment</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Post have not comments yet</p>
+        {% endif %}
+        <form method="post" action="{% url 'add_comment' post.id %}">
+            {% csrf_token %}
+            {{ comment_form }}
+            <button type="submit">Submit</button>
+        </form>
+        {% if post.author_id.id == user_id %}
+            <div class="post-controls">
+                <a href="{% url 'edit_post' post.id %}" style="text-decoration: none;">Edit post</a>  <a href="{% url 'del_post' post.id %}" style="text-decoration: none;">Delete post</a>
+            </div>
+        {% endif %}
+        <div class="back-btn">
+            <a href="{% url 'posts' %}" style="text-decoration: none;">Back</a>
+        </div>
+    </main>
+</body>
+</html>

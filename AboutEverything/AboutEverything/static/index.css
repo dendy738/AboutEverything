@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #2d3436;
+}
+
+.main-info {
+    text-align: center;
+    padding: 2rem;
+    max-width: 500px;
+}
+
+.welcome-card {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    color: #2d3436;
+}
+
+
+.main-info a {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: #2d3436;
+    color: #ffffff;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.main-info a:hover {
+    background-color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.main-info a:active {
+    transform: translateY(-1px);
+}

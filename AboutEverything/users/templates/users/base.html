@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AboutEverything</title>
+    {% block link %}{% endblock link %}
+</head>
+<body>
+    {% if messages %}
+        {% for mess in messages %}
+            <div class="{% if mess.level == DEFAULT_MESSAGE_LEVELS.ERROR %} alert-error {% else %} alert-success {% endif %}" role="alert">
+                <label>{{ mess }}</label>
+            </div>
+        {% endfor %}
+    {% endif %}
+  <main>{% block content %}{% endblock content %}</main>
+</body>
+</html>

@@ -1,0 +1,155 @@
+/* Базовая разметка страницы */
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 260px 1fr; /* Левая панель и основной контент */
+    grid-template-rows: 70px 1fr;    /* Высота шапки */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Inter', -apple-system, sans-serif;
+    min-height: 100vh;
+}
+
+/* --- ВЕРХНЯЯ ПАНЕЛЬ (HEADER) --- */
+.top-panel {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: black;
+    letter-spacing: -1px;
+}
+
+.logo a {
+    color: black;
+}
+
+.nav-links a { margin-left: 25px; color: #636e72; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: #2d3436; }
+
+/* --- БОКОВАЯ ПАНЕЛЬ (ASIDE) --- */
+aside {
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside li a {
+    display: block;
+    padding: 12px 20px;
+    color: #2d3436;
+    border-radius: 50px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+aside li a:hover {
+    background: white;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* --- КОНТЕЙНЕР ФОРМЫ --- */
+main {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Стилизация полей Django Form */
+main form p {
+    margin-bottom: 20px;
+}
+
+main form label {
+    display: block;
+    margin-bottom: 10px;
+    margin: 10px;
+    font-weight: 600;
+    color: #2d3436;
+    font-size: 0.9rem;
+}
+
+/* Стили для Input, Select и Textarea */
+main input,
+main select,
+main textarea {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid #f1f3f5;
+    border-radius: 15px; /* Чуть менее округлые для удобства ввода текста */
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    box-sizing: border-box;
+}
+
+main input:focus,
+main select:focus,
+main textarea:focus {
+    border-color: #2d3436;
+    background: white;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(45, 52, 54, 0.05);
+}
+
+/* Высота для поля с контентом */
+main textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+/* Кнопка Submit */
+button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    background: #2d3436;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+}
+
+button[type="submit"]:hover {
+    background: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Сообщения (Messages) */
+p {
+    color: #d63031;
+    font-size: 0.9rem;
+    text-align: center;
+}

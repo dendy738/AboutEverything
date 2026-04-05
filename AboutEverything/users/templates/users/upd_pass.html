@@ -1,0 +1,19 @@
+{% extends 'users/base.html' %}
+{% load static%}
+{% block link %}<link rel="stylesheet" href="{% static 'users/css/upd_pass.css' %}"/>{% endblock link %}
+{% block content %}
+<div class="pass-card">
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form">
+      {{ form.as_p }}
+    </div>
+    <div class="send-btn">
+      <button type="submit">Change</button>
+    </div>
+  </form>
+</div>
+<div class="btn-back">
+  <a href="{% url 'signin' %}" style="text-decoration: none;">Back</a>
+</div>
+{% endblock content %}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AboutEverything</title>
+    <link href="{% static 'user_profile/css/profile.css' %}" rel="stylesheet"/>
+</head>
+<body>
+    <header class="top-panel">
+    <div class="logo">
+        <a href="{% url 'posts' %}" style="text-decoration: none;">AboutEverything</a>
+    </div>
+    <nav class="nav-links">
+        <a href="{% url 'posts' %}" style="text-decoration: none;">Main</a>
+        <a href="{% url 'add_post' %}" style="text-decoration: none;">Add Post</a>
+        <a href="" style="text-decoration: none;">Rules</a>
+        <a href="" style="text-decoration: none;">About Us</a>
+        <a href="{% url 'profile' user_id %}" style="text-decoration: none;">Profile</a>
+        <a href="{% url 'logout' %}" style="text-decoration: none;">Logout</a>
+    </nav>
+    </header>
+    {% if messages %}
+        <div class="{% if messages.error %} alert-error {% else %} alert-success {% endif %}" role="alert">
+            {% for mess in messages %}
+                <label>{{ mess }}</label>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="profile-wrapper">
+        <div class="user-sttngs">
+            <a href="{% url 'profile' user_id %}">General settings</a>
+            <a href="{% url 'profile' user_id %}user_posts/">Your posts</a>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="user-profile">
+                <p>General settings: </p>
+                <label>First Name: </label>
+                {{ form.first_name }}
+                <label>Last Name: </label>
+                {{ form.last_name }}
+                <label>Second last name: </label>
+                {{ form.second_last_name }}
+                <label>Birthday: </label>
+                {{ form.birthday }}
+                <label>Country: </label>
+                {{ form.country }}
+                <label>Contact number: </label>
+                {{ form.contact_number }}
+                <p>Account settings: </p>
+                <label>Username: </label>
+                {{ form.user_name }}
+                <label>Email: </label>
+                {{ form.email }}
+                <a href="{% url 'change_password' user_id %}">Change password</a>
+            </div>
+            <div class="save-btn">
+                <button type="submit">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

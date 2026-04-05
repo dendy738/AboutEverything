@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AboutEverything</title>
+    <link href="{% static 'user_profile/css/user_posts.css' %}" rel="stylesheet"/>
+</head>
+<body>
+    <header class="top-panel">
+        <div class="logo">
+            <a href="{% url 'posts' %}" style="text-decoration: none;">AboutEverything</a>
+        </div>
+        <nav class="nav-links">
+            <a href="{% url 'posts' %}" style="text-decoration: none;">Main</a>
+            <a href="{% url 'add_post' %}" style="text-decoration: none;">Add Post</a>
+            <a href="" style="text-decoration: none;">Rules</a>
+            <a href="" style="text-decoration: none;">About Us</a>
+            <a href="{% url 'profile' user_id %}" style="text-decoration: none;">Profile</a>
+            <a href="{% url 'logout' %}" style="text-decoration: none;">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <div class="user-sttngs">
+            <a href="{% url 'profile' user_id %}">General settings</a>
+            <a href="{% url 'profile' user_id %}user_posts/">Your posts</a>
+        </div>
+        <div class="post-list">
+            {% if messages %}
+                <div class="{% if messages.error %} alert-error {% else %} alert-success {% endif %}" role="alert">
+                    {% for mess in messages %}
+                        <label>{{ mess }}</label>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if us_posts %}
+                {% for post in us_posts %}
+                    <div class="post">
+                         <a class="post-card" href="{% url 'show_post' post.id %}" style="text-decoration: none;">
+                            <div class="post-title">
+                                <label>{{ post.title }}</label>
+                            </div>
+                            <div class="post-content">
+                                <label>{{ post.content }}</label>
+                            </div>
+                            <div class="post-date">
+                                <label>{{ post.posted_at }}</label>
+                            </div>
+                         </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <label>You don't submit any post yet.</label>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,180 @@
+/* Базовая структура */
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Inter', sans-serif;
+    color: #2d3436;
+    min-height: 100vh;
+}
+
+/* Шапка */
+.top-panel {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: black;
+    letter-spacing: -1px;
+}
+
+.logo a {
+    color: black;
+}
+
+.nav-links a { margin-left: 25px; color: #636e72; font-weight: 500; transition: 0.3s; text-decoration: none; }
+.nav-links a:hover { color: #2d3436; }
+
+/* Контейнер профиля */
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    margin-left: 8%;
+}
+
+/* Боковое меню */
+.user-sttngs {
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.user-sttngs a {
+    display: block;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 50px;
+    color: #2d3436;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    text-align: center;
+}
+
+.user-sttngs a:hover { background: #2d3436; color: white; transform: translateX(5px); }
+
+/* Карточка профиля */
+.user-profile {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 600px;
+}
+
+.user-profile p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 25px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f1f3f5;
+}
+
+.user-profile label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #b2bec3;
+    margin: 15px 0 5px 15px;
+}
+
+/* ОБЩИЙ СТИЛЬ ДЛЯ ВСЕХ ПОЛЕЙ */
+.user-profile input,
+.user-profile select {
+    width: 100%;
+    height: 48px; /* Единая высота для всех */
+    padding: 0 20px;
+    border: 2px solid #f1f3f5;
+    border-radius: 50px;
+    font-size: 1rem;
+    background: #f8f9fa;
+    transition: 0.3s;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.user-profile input:focus,
+.user-profile select:focus {
+    border-color: #2d3436;
+    background: white;
+}
+
+/* --- ТЕЛЕФОН (PhoneWidget) --- */
+/* Код страны */
+.user-profile select.multi-widget {
+    display: inline-block !important;
+    width: 100px !important;
+    margin-right: 8px !important;
+    appearance: none;
+    text-align: center;
+}
+
+/* Поле номера */
+.user-profile input.multi-widget {
+    display: inline-block !important;
+    width: calc(100% - 115px) !important;
+}
+
+/* --- ДАТА РОЖДЕНИЯ (SelectDateWidget) --- */
+.my-date-select {
+    display: inline-block !important;
+    width: calc(33.3% - 10px) !important;
+    margin-right: 5px !important;
+}
+.my-date-select:last-child { margin-right: 0 !important; }
+
+/* Ссылка смены пароля */
+.user-profile a[href*="password"] {
+    display: inline-block;
+    margin-top: 15px;
+    color: #0984e3;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/* Кнопка сохранить */
+.save-btn { margin-top: 20px; }
+.save-btn button {
+    width: 100%;
+    padding: 16px;
+    margin-left: 40px;
+    background: #2d3436;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.save-btn button:hover { background: #000; transform: translateY(-2px); }
+
+/* Сообщения */
+.alert-error, .alert-success {
+    padding: 15px 30px;
+    border-radius: 50px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+}
+.alert-error { background: #ff7675; color: white; }
+.alert-success { background: #55efc4; color: #1e3a34; }

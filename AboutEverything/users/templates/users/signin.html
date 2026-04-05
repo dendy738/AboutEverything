@@ -1,0 +1,22 @@
+{% extends 'users/base.html' %}
+{% load static%}
+{% block link %}<link rel="stylesheet" href="{% static 'users/css/signin.css' %}"/>{% endblock link %}
+{% block content %}
+<div class="auth-card">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="signin-card">
+            {{ form.as_p }}
+        </div>
+        <div class="signin-btn">
+            <button type="submit">Sign in</button>
+        </div>
+    </form>
+</div>
+<div class="reset-pass">
+    <a href="{% url 'get_email' %}" style="text-decoration: none;">Forgot your password?</a>
+</div>
+<div class="signup-url">
+    <a href="{% url 'signup' %}" style="text-decoration: none;">Don't have an account yet? Sign up.</a>
+</div>
+{% endblock content %}

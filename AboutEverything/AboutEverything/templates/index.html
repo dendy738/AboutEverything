@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AboutEverything</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}"/>
+</head>
+<body>
+    <div class="main-info">
+        <main>
+            <p class="welcome-card">Welcome to the discussion platform where you can find discussion on any topic.</p>
+            <a href="{% url 'signin' %}" style="text-decoration: none;">Find discussion</a>
+        </main>
+    </div>
+</body>
+</html>

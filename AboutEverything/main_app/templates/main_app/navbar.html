@@ -1,0 +1,11 @@
+<header class="top-panel">
+    <div class="logo">AboutEverything</div>
+    <nav class="nav-links">
+        <a href="{% url 'posts' %}" style="text-decoration: none;">Main</a>
+        <a href="{% url 'add_post' %}" style="text-decoration: none;">Add Post</a>
+        <a href="" style="text-decoration: none;">Rules</a>
+        <a href="" style="text-decoration: none;">About Us</a>
+        <a href="{% url 'profile' user_id %}" style="text-decoration: none;">Profile</a>
+        <a href="{% url 'logout' %}" style="text-decoration: none;">Logout</a>
+    </nav>
+</header>

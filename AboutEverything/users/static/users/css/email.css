@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #2d3436;
+}
+
+main {
+    text-align: center;
+    padding: 2rem;
+    max-width: 500px;
+}
+
+/* --- Стили для уведомлений (Django Messages) --- */
+
+/* Контейнер для сообщений */
+.alert-error, .alert-success {
+    position: fixed; /* Закрепляем сверху */
+    top: 20px;
+    padding: 15px 30px;
+    border-radius: 50px; /* Капсульный стиль под кнопку */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    font-size: 0.9rem;
+    animation: slideDown 0.4s ease-out; /* Анимация появления */
+    z-index: 1000;
+}
+
+/* Ошибка (красный/розовый тон) */
+.alert-error {
+    background-color: #ff7675;
+    color: white;
+}
+
+/* Успех (зеленый тон) */
+.alert-success {
+    background-color: #55efc4;
+    color: #1e3a34;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+a {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: #2d3436;
+    color: #ffffff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background-color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Карточка ввода Email */
+.email-card {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(12px);
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.form p {
+    margin-bottom: 15px;
+    text-align: left;
+    text-indent: 20px;
+}
+
+/* Стилизация полей внутри {{ form }} */
+.form input {
+    width: 100%;
+    padding: 14px 22px;
+    margin-bottom: 15px;
+    border: 2px solid #e0e6ed;
+    border-radius: 50px; /* Капсульный стиль */
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form input:focus {
+    border-color: #2d3436;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(45, 52, 54, 0.1);
+}
+
+/* Кнопка отправки */
+.send-btn button {
+    width: 50%;
+    padding: 15px;
+    background-color: #2d3436;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.send-btn button:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Ссылка "Назад" */
+.btn-back a {
+    color: white;
+    font-size: 0.9rem;
+    transition: color 0.4s ease;
+}
+
+.btn-back a:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}

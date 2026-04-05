@@ -1,0 +1,148 @@
+/* Базовая разметка */
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+/* Шапка */
+.top-panel {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: black;
+    letter-spacing: -1px;
+}
+
+.logo a {
+    color: black;
+}
+
+.nav-links a { margin-left: 25px; color: #636e72; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: #2d3436; }
+
+/* --- ГЛАВНЫЙ КОНТЕЙНЕР С ФЛЕКСОМ --- */
+main {
+    display: flex;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 40px; /* Расстояние между колонками */
+    align-items: flex-start;
+}
+
+/* ЛЕВАЯ ПАНЕЛЬ НАВИГАЦИИ */
+.user-sttngs {
+    flex-shrink: 0;
+    width: 220px;
+    position: sticky;
+    top: 110px; /* Будет "прилипать" при скролле */
+}
+
+.user-sttngs a {
+    display: block;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 50px;
+    color: #2d3436;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.user-sttngs a:hover {
+    background: #2d3436;
+    color: white;
+    transform: translateX(5px);
+}
+
+/* ПРАВАЯ КОЛОНКА С ПОСТАМИ */
+.post-list {
+    flex-grow: 1;
+}
+
+/* Настройка самой карточки */
+.post-card {
+    display: block;
+    background: white;
+    padding: 25px;
+    border-radius: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+
+    /* ГАРАНТИЯ ВНУТРЕННИХ ГРАНИЦ */
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* Скрывает всё, что пытается вылезти */
+}
+
+.post-card:hover {
+    transform: translateY(0px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    border-color: #2d3436;
+}
+
+/* Настройка заголовка, чтобы он тоже не ломал верстку */
+.post-title label {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2d3436;
+    overflow-wrap: break-word;
+}
+
+/* Настройка контента внутри карточки */
+.post-content label {
+    display: block; /* Делаем блочным, чтобы работали отступы и ширина */
+    color: #636e72;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 10px;
+
+    /* РЕШЕНИЕ ПРОБЛЕМЫ ВЫХОДА ТЕКСТА */
+    word-wrap: break-word;       /* Перенос длинных слов */
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+    /* ОГРАНИЧЕНИЕ ПО ВЫСОТЕ (опционально, чтобы карточки были одной высоты) */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;       /* Показывает только 3 строки */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.post-date, .post-author {
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 20px;
+    font-size: 0.8rem;
+    color: #b2bec3;
+}
+
+/* Уведомления */
+.alert-error, .alert-success {
+    padding: 15px;
+    border-radius: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
